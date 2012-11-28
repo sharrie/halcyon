@@ -5,3 +5,7 @@ ENV/*
 # COMPILED #
 ############
 *.pyc
+
+# DATABASE #
+############
+*.db
