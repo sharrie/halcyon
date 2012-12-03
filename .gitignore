@@ -13,3 +13,10 @@ ENV/*
 # DATABASE #
 ############
 *.db
+
+# BACKUPS #
+###########
+*.html~
+*.css~
+*.js~
+*.*~
