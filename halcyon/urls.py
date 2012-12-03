@@ -9,11 +9,13 @@ urlpatterns = patterns('',
     # url(r'^$', 'halcyon.views.home', name='home'),
     # url(r'^halcyon/', include('halcyon.foo.urls')),
 
+    url(r'^todo/todo/', 'todo.views.todo'),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^todo/', include('todo.urls')),
+    url(r'^todo/', include('todo.urls'))
 )

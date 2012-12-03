@@ -1,8 +1,10 @@
+{% url todo.views.todo as todo_url %}
+<a href="{{ todo_url }}">New Todo!</a>
 {% if todo_list %}
     <ul>
-    {% for items in todo_list %}
-        <li><a href="/todo/{{ items.id }}/">{{ item.name }}</a></li>
-    {% endfor %}
+      {% for item in todo_list %}
+      <li><a href="/todo/{{ item.id }}/">{{ item.name }}</a></li>
+      {% endfor %}
     </ul>
 {% else %}
     <p>No polls are available.</p>
