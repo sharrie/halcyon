@@ -1,3 +1,3 @@
 #Halcyon
 
-I dunno lol.
+Super awesome to do list by Conrad and Sharrie!

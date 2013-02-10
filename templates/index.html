@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 {% url todo.views.todo as todo_url %}
+
+<form action="demo_form.asp">
+  <input type="text" name="todo_name" class="default-value" value="Enter a new item here"/>
+  <input type="text" name="todo_description" class="default-value" value="Enter a description here"/>
+  <input type="submit" class="submit" value="Submit">
+</form>
+
 {% if todo_list %}
-    <ul>
-      <div id='todo'>
-      <form action="demo_form.asp">
-	<input type="text" name="todo_name" value="New Todo"><br>
-	<input type="text" name="todo_description" value="Description"><br>
-	<input type="submit" value="Submit">
-      </form>
-      </div>
+    <ol>
       {% for item in todo_list %}
-      <div id='todo'>
-      <div class='title'>
+      <li><div class='title'>
         {{ item.name }}
-      </div>
+      </div></li>
       {% if item.description %}
-      <li>{{ item.description }}</li>
-      {% endif %}
+      <div id='desc'>
+      {{ item.description }}
       </div>
+      {% endif %}
       {% endfor %}
-    </ul>
+    </ol>
 {% else %}
     <div id='todo'>
     <p>You don't have anything to do!</p>
