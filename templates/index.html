@@ -1,11 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
 {% url todo.views.todo as todo_url %}
 <a href="{{ todo_url }}">New Todo!</a>
 {% if todo_list %}
     <ul>
       {% for item in todo_list %}
-      <li><a href="/todo/{{ item.id }}/">{{ item.name }}</a></li>
+      <div class='title'>
+        {{ item.name }}
+      </div>
+      {% if item.description %}
+      <div id='todo'>
+      <li>{{ item.description }}</li>
+      </div>
+      {% endif %}
       {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <div id='todo'>
+    <p>You don't have anything to do!</p>
+    </div>
 {% endif %}
+{% endblock %}

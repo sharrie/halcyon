@@ -1,0 +1,194 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300|Raleway:100);
+
+body {
+    //background-image: url('../background.png');
+}
+
+#content {
+    font-family:'Open Sans',arial,sans-serif;
+    width: 42%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#todo {
+    background-color: #FAFAFA;
+    border-radius: 0px 5px 0px 5px;
+    -webkit-border-radius: 0px 5px 0px 5px;
+    -moz-border-radius: 0px 5px 0px 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .2);
+    border: 1px solid #BFBFBF;
+}
+
+#content ul {
+    margin: 0;
+    padding: 0;
+}
+
+#todo li {
+    display: inline;
+}
+
+.title {
+    padding-top: 20px;
+}
+
+.outline {
+    padding: 3%;
+}
+
+#content .outline {
+    border-radius: 0px 5px 0px 5px;
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+}
+
+#menu .outline {
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: inset 0px 0px 0px 1px #CCF0FF;
+}
+
+#menu {
+    font-family:'Open Sans',arial,sans-serif;
+    width: 42%;
+    margin: auto;
+    margin-top: 20px;
+
+    /* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top, #CCF0FF 0%, #66D1FF 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #CCF0FF 0%, #66D1FF 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #CCF0FF 0%, #66D1FF 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #CCF0FF), color-stop(1, #66D1FF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #B3E8FF 0%, #99E0FF 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom, #CCF0FF 0%, #66D1FF 100%);
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .2);
+    border: 1px solid #80D9FF;
+}
+
+h1.title {    
+    font-family:'Open Sans',arial,sans-serif;
+    color:#4D4D4D;
+    text-shadow: 0 1px 0 white;
+    font-size:48px;
+    margin: 20px;
+    padding:0 0 5px;
+    line-height:32px;
+    font-weight:600;
+}
+
+h1 {
+    font-family:'Open Sans',arial,sans-serif;
+    color:#4D4D4D;
+    font-size:48px;
+    line-height:32px;
+    font-weight:600;
+}
+
+h2 {
+    font-family:'Open Sans',arial,sans-serif;
+    color:#4D4D4D;
+    font-size:32px;
+    font-weight:600;
+    margin: 10px;
+}
+
+h3 {
+    color: #4D4D4D;
+}
+
+h4 {
+    font-family:'Open Sans',arial,sans-serif;
+    color:#A1A1A1;
+    font-size:16px;
+    font-weight: normal;
+}
+
+h5 {
+    color:#4D4D4D;
+    font-weight: normal;
+}
+
+h6 {
+    color:#4D4D4D;
+    font-weight: normal;
+}
+
+
+
+hr, hr.hr-1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 75%;
+    color: #A1A1A1;
+    border: 0px;
+    height: 1;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+hr.hr-1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+hr.hr-2 {
+    padding: 0 10px 0 0;
+    margin: 0 10px 0 0;
+    width: 75%;
+    color: #A1A1A1;
+    border: 0px;
+    height: 1;
+    background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+    background-image:      -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+}
+
+#menu ul {
+    text-align: center;
+}
+
+#menu li {
+    display: inline;
+    padding-right: 7%;
+}
+
+p {
+    color:#4D4D4D;
+    text-indent: 20px;    
+}
+
+a {
+    color: #4D4D4D;
+    text-decoration: none;
+}
+
+#menu a {
+    text-shadow: 0 1px 0 white;
+}
+
+a:hover {
+    color: black;
+    -webkit-transition: color .5s;
+    -moz-transition: color .5s;
+    -ms-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s;
+}

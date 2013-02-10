@@ -9,7 +9,7 @@ class Item(models.Model):
     time_added = models.TimeField(auto_now_add=True)
     date_due = models.DateField(blank=True, null=True)
     time_due = models.TimeField(blank=True, null=True)
-    description = models.CharField(max_length=1024)
+    description = models.CharField(max_length=1024, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     done = models.BooleanField(default=False)
     hidden = models.BooleanField(default=False)
