@@ -4,5 +4,5 @@ from todo import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
-    url(r'^todo/$', views.todo, name='todo')
+    url(r'^new-todo/$', views.new_todo, name='new_todo')
 )

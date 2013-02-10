@@ -1,9 +1,12 @@
 from django.db import models
 from django.contrib import admin
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Item(models.Model):
+    user = models.ForeignKey(User, related_name='todos')
+
     name = models.CharField(max_length=128)
     date_added = models.DateField(auto_now_add=True)
     time_added = models.TimeField(auto_now_add=True)

@@ -11,7 +11,6 @@ body {
     font-family:'Open Sans',arial,sans-serif;
     width: 42%;
     margin: auto;
-    margin-top: 20px;
 }
 
 #todo {
@@ -21,6 +20,9 @@ body {
     -moz-border-radius: 0px 5px 0px 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .2);
     border: 1px solid #BFBFBF;
+    margin: 20px;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 #content ul {
@@ -33,7 +35,9 @@ body {
 }
 
 .title {
-    padding-top: 20px;
+    color: gray;
+    text-align: center;
+    padding: 10px;
 }
 
 .outline {
@@ -78,6 +82,11 @@ background-image: linear-gradient(to bottom, #CCF0FF 0%, #66D1FF 100%);
     -moz-border-radius: 5px 5px 0 0;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .2);
     border: 1px solid #80D9FF;
+}
+
+.user {
+    font-size:10px;
+    text-align: right;
 }
 
 h1.title {    
