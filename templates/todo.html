@@ -1,4 +1,9 @@
-<form action="/todo/" method="post">{% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit" />
-</form>
+<li><div class='title'>
+  {{ item.name }}
+</div></li>
+{% if item.description %}
+<div id='desc'>
+  {{ item.description }}
+</div>
+{% endif %}
+

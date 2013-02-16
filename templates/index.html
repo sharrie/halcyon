@@ -2,28 +2,21 @@
 {% block content %}
 {% url todo.views.todo as todo_url %}
 
-<form action="demo_form.asp">
-  <input type="text" name="todo_name" class="default-value" value="Enter your task name here"/>
-  <input type="text" name="todo_description" class="default-value" value="Enter the description here"/>
-  <input type="submit" class="submit" value="SUBMIT">
-</form>
+<!-- NEW TODO -->
+{% include "new_todo.html" %}
 
+<!-- LIST TODOs -->
 {% if todo_list %}
-    <ol>
-      {% for item in todo_list %}
-      <li><div class='title'>
-        {{ item.name }}
-      </div></li>
-      {% if item.description %}
-      <div id='desc'>
-      {{ item.description }}
-      </div>
-      {% endif %}
-      {% endfor %}
-    </ol>
+<ol>
+  {% for item in todo_list %}
+  {% include "todo.html" %}
+  {% endfor %}
+</ol>
+
+<!-- NO TODOs TO LIST -->
 {% else %}
-    <div id='todo'>
-    <p>You don't have anything to do!</p>
-    </div>
+<div id='todo'>
+  <p>You don't have anything to do!</p>
+</div>
 {% endif %}
 {% endblock %}
