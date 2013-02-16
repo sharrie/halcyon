@@ -2,19 +2,22 @@
 {% block content %}
 {% url todo.views.todo as todo_url %}
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    //Load elements of index
+    $(".list-todo").load("{% url todo.views.todo %}");
+    $(".new-todo").load("{% url todo.views.new_todo %}");
+  });
+</script>
+
 <!-- NEW TODO -->
-{% include "new_todo.html" %}
+<div class="new-todo"></div>
 
 <!-- LIST TODOs -->
-{% if todo_list %}
-<ol>
-  {% for item in todo_list %}
-  {% include "todo.html" %}
-  {% endfor %}
-</ol>
+<div class="list-todo"></div>
 
 <!-- NO TODOs TO LIST -->
-{% else %}
+{% if not todo_list %}
 <div id='todo'>
   <p>You don't have anything to do!</p>
 </div>

@@ -1,9 +1,14 @@
-<li><div class='title'>
-  {{ item.name }}
-</div></li>
-{% if item.description %}
-<div id='desc'>
-  {{ item.description }}
-</div>
+{% if todo_list %}
+<ol>
+  {% for item in todo_list %}
+  <li><div class='title'>
+      {{ item.name }}
+  </div></li>
+  {% if item.description %}
+  <div id='desc'>
+    {{ item.description }}
+  </div>
+  {% endif %}
+  {% endfor %}
+</ol>
 {% endif %}
-
