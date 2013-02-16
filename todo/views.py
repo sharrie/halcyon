@@ -22,7 +22,7 @@ def index(request):
 def todo(request):
 
     if request.method == 'GET':
-        todo_list = Item.objects.all()[:5]
+        todo_list = Item.objects.all()
 
         context = {"todo_list": todo_list}
 
