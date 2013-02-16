@@ -1,6 +1,0 @@
-<form method="post" action="{% url todo.views.new_todo %}">
-  {% csrf_token %}
-  <input type="text" name="todo_name" class="default-value" value="Enter your task name here"/>
-  <input type="text" name="todo_description" class="default-value" value="Enter the description here"/>
-  <input type="submit" class="submit" value="SUBMIT">
-</form>

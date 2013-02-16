@@ -1,6 +1,7 @@
 {% if todo_list %}
-<ol>
+<ol class="items">
   {% for item in todo_list %}
+  <div class="circle"></div>
   <li><div class='title'>
       {{ item.name }}
   </div></li>
