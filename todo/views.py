@@ -35,24 +35,12 @@ def todo(request):
 def login(request):
 
     if request.method == 'GET':
-        form = LoginForm()
+        return render(request, 'login.html')
 
     if request.method =='POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    # Redirect to a success page.
-                else:
-                    pass
-                    # Return a 'disabled account' error message
-            else:
-                pass
-                # Return an 'invalid login' error message.
+        pass
+
+    return render(request, 'login.html')
 
 def new_todo(request):
 

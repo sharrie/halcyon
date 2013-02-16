@@ -1,0 +1,6 @@
+<form method="post" action="{% url todo.views.login %}">
+  {% csrf_token %}
+  <input type="text" name="username" class="default-value" placeholder="Username" required />
+  <input type="password" name="password" class="default-value" placeholder="Password" />
+  <center><input type="submit" class="submit" value="SUBMIT"></center>
+</form>

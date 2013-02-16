@@ -1,7 +1,3 @@
-<head>
-  <script src="{{ STATIC_URL }}js/functions.js"></script>
-</head>
-
 <form method="post" action="{% url todo.views.new_todo %}">
   {% csrf_token %}
   <input type="text" name="todo_name" class="default-value" placeholder="Enter your task name here" required />
