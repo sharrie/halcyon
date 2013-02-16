@@ -1,7 +1,16 @@
+<script type="text/javascript">
+$(document).ready(function() {
+  $('a[name="login_button"]').click(function(e){
+    e.preventDefault();
+    $('.login').show();
+  });
+});
+</script>
+
 <header>
   <nav>
     <ul>Welcome Guest! Login to save your to-do list.
-      <li><a href="{% url todo.views.login %}">LOGIN</a></li>   
+      <li><a href="{% url todo.views.login %}" name="login_button">LOGIN</a></li>   
     </ul>
   </nav>
 </header> 

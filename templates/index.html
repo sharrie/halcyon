@@ -7,8 +7,13 @@
     //Load elements of index
     $(".list-todo").load("{% url todo.views.todo %}");
     $(".new-todo").load("{% url todo.views.new_todo %}");
+    $(".login").load("{% url todo.views.login %}");
+      
   });
 </script>
+
+<!-- LOGIN FORM -->
+<div class="login"></div>
 
 <!-- NEW TODO -->
 <div class="new-todo"></div>

@@ -403,6 +403,10 @@ input[type=text]{
     outline: none;
     }
     
+.login {
+    display: none;
+}
+
 
 /* print styles
 -------------------------------------------------------------------------------*/
