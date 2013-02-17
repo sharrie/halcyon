@@ -3,16 +3,45 @@ $(document).ready(function() {
   
   $('a[name="login_show"]').click(function(e){
     e.preventDefault();
+    
+    $('.registration').hide();
     $('.login').show();
+    
     $(this).hide();
     $('a[name="login_hide"]').show();
+    $('a[name="registration_show"]').show();
+    $('a[name="registration_hide"]').hide();
+
   });
 
   $('a[name="login_hide"]').click(function(e){
     e.preventDefault();
+
     $('.login').hide();
+    
     $(this).hide();
     $('a[name="login_show"]').show();
+
+  });
+
+  $('a[name="registration_show"]').click(function(e){
+    e.preventDefault();
+
+    $('.login').hide();
+    $('.registration').show();
+
+    $(this).hide();
+    $('a[name="registration_hide"]').show();
+    $('a[name="login_show"]').show();
+    $('a[name="login_hide"]').hide();
+    
+  });
+
+  $('a[name="registration_hide"]').click(function(e){
+    e.preventDefault();
+    $('.registration').hide();
+    $(this).hide();
+    $('a[name="registration_show"]').show();
   });
 
 });
@@ -20,8 +49,8 @@ $(document).ready(function() {
 
 <header>
   <nav>
-    <ul>Welcome {{ user }}! Login to save your to-do list.
-      <li id="username">{% if not user.is_authenticated %}<a href="{% url todo.views.login %}" name="login_show">LOGIN</a><a href="#" name="login_hide">HIDE</a>{% else %}<a href="{% url todo.views.logout %}" name="logout_button">LOGOUT</a>{% endif %}</li>   
+    <ul>Welcome {{ user }}! {% if not user.is_authenticated %}Login to save your to-do list.{% endif %}
+      <li id="username">{% if not user.is_authenticated %}<a href="#" name="login_show">LOGIN</a><a href="#" name="login_hide">HIDE</a><a href="#" name="registration_show">REGISTER</a><a href="#" name="registration_hide">HIDE</a>{% else %}<a href="{% url todo.views.logout %}" name="logout_button">LOGOUT</a>{% endif %}</li>   
     </ul>
   </nav>
 </header> 

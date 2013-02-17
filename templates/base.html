@@ -46,6 +46,17 @@
 
 <body>
 
+  <div class="flash">
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+
 <div class="main">
 
   <div id="halcyon">HALCYON</div>
@@ -55,6 +66,8 @@
     <div class='menu'>
       {% include 'menu.html' %}
     </div>
+
+<div class="flash">{{ flash }}</div>
 
 <div class="content">
 

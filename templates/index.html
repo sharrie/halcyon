@@ -3,17 +3,22 @@
 {% url todo.views.todo as todo_url %}
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    //Load elements of index
-    $(".list-todo").load("{% url todo.views.todo %}");
-    $(".new-todo").load("{% url todo.views.new_todo %}");
-    $(".login").load("{% url todo.views.login %}");
-      
-  });
+$(document).ready(function() {
+  //Load elements of index
+  $(".list-todo").load("{% url todo.views.todo %}");
+  $(".new-todo").load("{% url todo.views.new_todo %}");
+  $(".login").load("{% url todo.views.login %}");
+  $(".registration").load("{% url todo.views.registration %}");
+});
 </script>
+
+
 
 <!-- LOGIN FORM -->
 <div class="login"></div>
+
+<!-- REGISTRATION FORM -->
+<div class="registration"></div>
 
 <!-- NEW TODO -->
 <div class="new-todo"></div>

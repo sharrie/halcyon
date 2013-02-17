@@ -417,11 +417,36 @@ input[type=password]{
     outline: none;
     }
     
+.flash {
+    font-size: 14px;
+    text-align: center;
+    width: 100%
+    float: left;
+    margin: 0 0 15px 0;
+    background-color: #fff;
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(255, 255, 255);
+    /* RGBa with 0.6 opacity */
+    background: rgba(255, 255, 255, 0.35);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
 .login {
     display: none;
 }
 
+.registration {
+    display: none;
+}
+
 a[name="login_hide"] {
+    display: none;
+}
+
+a[name="registration_hide"] {
     display: none;
 }
 

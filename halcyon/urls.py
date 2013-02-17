@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^todo/new/$', 'todo.views.new_todo'),
     url(r'^login/$', 'todo.views.login'),
     url(r'^logout/$', 'todo.views.logout'),
+    url(r'^registration/$', 'todo.views.registration'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

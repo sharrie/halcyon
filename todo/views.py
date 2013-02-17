@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.shortcuts import redirect
+from django.contrib import messages
 
 from django.contrib.auth.models import *
 from todo.models import Item
@@ -14,24 +15,52 @@ from todo.forms import TodoForm
 
 def index(request):
 
-    todo_list = Item.objects.all()[:5]
-
-    context = {"todo_list": todo_list}
-
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
 
 def todo(request):
 
     if request.method == 'GET':
-        todo_list = Item.objects.all()
-
-        context = {"todo_list": todo_list}
-
+        if request.user.is_authenticated():
+            todo_list = Item.objects.filter(user__id=request.user.id).order_by('date_added', 'time_added').reverse()
+            
+            context = {"todo_list": todo_list}
+            
+        else:
+            pass
+            
     if request.method == 'POST':
         pass
 
     return render(request, 'todo.html', context)
+
+
+def new_todo(request):
+
+    if request.method == 'GET':
+        return render(request, 'new-todo.html')
+
+    if request.method == 'POST':
+        todo_name = request.POST.get('todo_name')
+        todo_description = None
+
+        if request.user.is_authenticated():
+            if request.POST.get('todo_description'):
+                todo_description = request.POST.get('todo_description')
+            
+            t = Item(name=todo_name, description=todo_description, user=request.user)
+            t.save()
+            messages.add_message(request, messages.INFO, 'Todo added!')
+                
+            return redirect('/')
+            
+        else:
+            todo_description = request.POST.get('todo_description')
+            request.session['todo_name'] = todo_name
+            request.session['todo_description'] = todo_description
+            messages.add_message(request, messages.INFO, 'Todo added as anonymous user!')
+            
+            return redirect('/')
 
 
 def login(request):
@@ -46,15 +75,16 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request, user)
+                messages.add_message(request, messages.INFO, 'Logged in!')
                 return redirect('/')
+                #return render(request, 'index.html')
                 
             else:
                 pass #return 'disabled account'
         else:
-            print 'HI'
             return HttpResponse('bad_login')
 
-    return render(request, 'login.html')
+    return render(request, 'login.html' )
 
 def logout(request):
 
@@ -62,19 +92,20 @@ def logout(request):
         auth_logout(request)
         return redirect('/')
 
-def new_todo(request):
+def registration(request):
 
     if request.method == 'GET':
-        return render(request, 'new-todo.html')
+        return render(request, 'registration.html')
 
-    if request.method == 'POST':
-        todo_name = request.POST.get('todo_name')
-        todo_description = None
-        if request.POST.get('todo_description'):
-            todo_description = request.POST.get('todo_description')
+    if request.method =='POST':
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = User.objects.create_user(username, email, password)
+        user.save();
 
-        t = Item(name=todo_name, description=todo_description, user=User.objects.get(username='admin'))
-        t.save()
-
+        messages.add_message(request, messages.INFO, 'Registered! Please login!')
+        
         return redirect('/')
 
