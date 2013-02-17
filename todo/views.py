@@ -77,14 +77,13 @@ def login(request):
                 auth_login(request, user)
                 messages.add_message(request, messages.INFO, 'Logged in!')
                 return redirect('/')
-                #return render(request, 'index.html')
                 
             else:
                 pass #return 'disabled account'
         else:
-            return HttpResponse('bad_login')
-
-    return render(request, 'login.html' )
+            messages.add_message(request, messages.INFO, 'Bad login')
+            #return HttpResponse('bad_login')
+            return redirect('/')
 
 def logout(request):
 
