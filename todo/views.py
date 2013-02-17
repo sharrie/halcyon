@@ -1,7 +1,9 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Context, loader
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 from django.shortcuts import redirect
 
 from django.contrib.auth.models import *
@@ -38,9 +40,27 @@ def login(request):
         return render(request, 'login.html')
 
     if request.method =='POST':
-        pass
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                return redirect('/')
+                
+            else:
+                pass #return 'disabled account'
+        else:
+            print 'HI'
+            return HttpResponse('bad_login')
 
     return render(request, 'login.html')
+
+def logout(request):
+
+    if request.method == 'GET':
+        auth_logout(request)
+        return redirect('/')
 
 def new_todo(request):
 

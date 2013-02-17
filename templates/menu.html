@@ -1,16 +1,27 @@
 <script type="text/javascript">
 $(document).ready(function() {
-  $('a[name="login_button"]').click(function(e){
+  
+  $('a[name="login_show"]').click(function(e){
     e.preventDefault();
     $('.login').show();
+    $(this).hide();
+    $('a[name="login_hide"]').show();
   });
+
+  $('a[name="login_hide"]').click(function(e){
+    e.preventDefault();
+    $('.login').hide();
+    $(this).hide();
+    $('a[name="login_show"]').show();
+  });
+
 });
 </script>
 
 <header>
   <nav>
-    <ul>Welcome Guest! Login to save your to-do list.
-      <li><a href="{% url todo.views.login %}" name="login_button">LOGIN</a></li>   
+    <ul>Welcome {{ user }}! Login to save your to-do list.
+      <li id="username">{% if not user.is_authenticated %}<a href="{% url todo.views.login %}" name="login_show">LOGIN</a><a href="#" name="login_hide">HIDE</a>{% else %}<a href="{% url todo.views.logout %}" name="logout_button">LOGOUT</a>{% endif %}</li>   
     </ul>
   </nav>
 </header> 

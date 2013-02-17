@@ -1,6 +1,22 @@
-<form method="post" action="{% url todo.views.login %}">
+<script type="text/javascript">
+$(document).ready(function() {
+  $('form').submit(function(e){
+    //Check if user logged in correctly, if not pull up the ajax
+    $.post(this.action, $(this).serialize(), function(data) {
+      if (data == "bad_login") {
+        e.preventDefault();    
+        alert(data);
+      };
+    });
+  });
+});
+</script>
+
+<div class="login_form">
+  <form method="post" action="{% url todo.views.login %}">
   {% csrf_token %}
-  <input type="text" name="username" class="default-value" placeholder="Username" required />
-  <input type="password" name="password" class="default-value" placeholder="Password" />
-  <center><input type="submit" class="submit" value="SUBMIT"></center>
-</form>
+    <input type="text" name="username" class="default-value" placeholder="Username" required />
+    <input type="password" name="password" class="default-value" placeholder="Password" required />
+    <center><input type="submit" class="submit" value="LOGIN"></center>
+  </form>
+</div>
