@@ -1,56 +1,53 @@
-<script type="text/javascript">
-$(document).ready(function() {
-  
-  $('a[name="login_show"]').click(function(e){
-    e.preventDefault();
-    
-    $('.registration').hide();
-    $('.login').show();
-    
-    $(this).hide();
-    $('a[name="login_hide"]').show();
-    $('a[name="registration_show"]').show();
-    $('a[name="registration_hide"]').hide();
-
-  });
-
-  $('a[name="login_hide"]').click(function(e){
-    e.preventDefault();
-
-    $('.login').hide();
-    
-    $(this).hide();
-    $('a[name="login_show"]').show();
-
-  });
-
-  $('a[name="registration_show"]').click(function(e){
-    e.preventDefault();
-
-    $('.login').hide();
-    $('.registration').show();
-
-    $(this).hide();
-    $('a[name="registration_hide"]').show();
-    $('a[name="login_show"]').show();
-    $('a[name="login_hide"]').hide();
-    
-  });
-
-  $('a[name="registration_hide"]').click(function(e){
-    e.preventDefault();
-    $('.registration').hide();
-    $(this).hide();
-    $('a[name="registration_show"]').show();
-  });
-
-});
-</script>
-
 <header>
   <nav>
-    <ul>Welcome {{ user }}! {% if not user.is_authenticated %}Login to save your to-do list.{% endif %}
-      <li id="username">{% if not user.is_authenticated %}<a href="#" name="login_show">LOGIN</a><a href="#" name="login_hide">HIDE</a><a href="#" name="registration_show">REGISTER</a><a href="#" name="registration_hide">HIDE</a>{% else %}<a href="{% url todo.views.logout %}" name="logout_button">LOGOUT</a>{% endif %}</li>   
-    </ul>
-  </nav>
+    <div class="welcome">
+      Welcome {{ user }}! 
+
+      {% if not user.is_authenticated %}
+
+      Login to save your to-do list.
+
+      {% endif %} 
+
+      <div class="linksRight">
+        {% if not user.is_authenticated %}
+
+        <a href="#" class="loginbutton">LOGIN</a>
+
+        <a href="#" class="registrationbutton">REGISTER</a>
+
+        {% else %}
+
+        <a href="{% url todo.views.logout %}" class="button">LOGOUT</a>
+
+        {% endif %}
+      </div>
+      <div class="container">
+      <div id="login_box">
+        <div id="login_box_content"></div>
+        <div id="login_box_content">
+          <form method="post" action="{% url todo.views.login %}" id="login_form">
+            {% csrf_token %}
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <center><input type="submit" value="LOGIN" /></center>
+          </form>
+        </div>
+      </div>
+    </div>
+      <div id="registration_box">
+        <div id="registration_box_content"></div>
+        <div id="registration_box_content">
+          <form method="post" action="{% url todo.views.registration %}" id="registration_form">
+            {% csrf_token %}
+            <input type="text" placeholder="Username" required/>
+            <input type="password" placeholder="Password" required/>
+            <center><input type="submit" value="REGISTER" /></center>
+          </form>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+  </nav> 
 </header> 

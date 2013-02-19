@@ -233,6 +233,8 @@ nav {
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+    z-index: 1;
+    position: relative;
     }
     
 nav ul {
@@ -243,11 +245,21 @@ nav ul {
     padding-left: 15px;
     }
 
-nav ul li {
+.welcome {
+    list-style: none;
+    width: 600px;   
+    margin: 0 auto;
+    padding: 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.linksRight {
+
     float: right;
-    }
+}
         
-nav ul li a {
+.loginbutton, .registrationbutton {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -269,13 +281,71 @@ nav ul li a {
     -o-transition: color 0s ease;
     }
     
-nav ul li a:hover {
+.loginbutton:hover, .registrationbutton:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
     background:-moz-linear-gradient( center top, #e8e8e8 5%, #ededed 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
     background-color:#f5f5f5;
     color: #5A94A5;
     }
+
+#container {
+
+    position: relative;
+}
+
+#login_box {
+    display:none;
+    position:absolute;
+    top: 35px;
+    right: -5px;
+    z-index: 100;
+    width: 250px;
+}
+#registration_box {
+    display:none;
+    position:absolute;
+    top: 35px;
+    right: -5px;
+    z-index: 110;
+    width: 250px;
+}
+#login_box_content {
+    background-color: #fff;
+    border-radius:5px;
+    float:left;
+    width:250px;
+    box-shadow: 1px 1px 0px 1px #efefef;
+}
+#registration_box_content {
+    background-color: #fff;
+    border-radius:5px;
+    float:left;
+    width:250px;
+    box-shadow: 1px 1px 0px 1px #efefef;
+}
+
+#login_form, #registration_form {
+    margin:9px 0 0 9px;
+}
+#login_form input[type=text],#login_form input[type=password], #registration_form input[type=text],#registration_form input[type=password]  {
+    border:1px solid #d8d8d8;
+    border-radius:3px;
+    font:italic 14px Georgia,times,sans-serif;
+    height:15px;
+    width:205px;
+    margin-top:10px;
+    padding-left:10px;
+}
+#login_form input[type=submit], #registration_form input[type=submit] {
+    border:none;
+    background:#5A94A5;
+    color:#fff;
+    float: none;
+    margin:0px 9px 9px 0;
+    height: 29px;
+}
+
 
 .submit {
     margin-top: -20px;
@@ -298,6 +368,7 @@ nav ul li a:hover {
     -moz-transition: color 0s ease; 
     -webkit-transition: color 0s ease; 
     -o-transition: color 0s ease;
+    margin-left: -38px;
     }
     
 .submit:hover {
@@ -314,7 +385,7 @@ nav ul li a:active {
 }
 
 ol.items {
-    list-style: decimal inside;
+    list-style: none;
     margin-left: -10px;
     line-height: 40px;
     font-size: 22px;
