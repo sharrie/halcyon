@@ -56,8 +56,8 @@ def new_todo(request):
             
         else:
             todo_description = request.POST.get('todo_description')
-            request.session['todo_name'] = todo_name
-            request.session['todo_description'] = todo_description
+            #request.session['todo_name'] = todo_name
+            #request.session['todo_description'] = todo_description
             messages.add_message(request, messages.INFO, 'Todo added as anonymous user!')
             
             return redirect('/')
@@ -97,14 +97,13 @@ def registration(request):
         return render(request, 'registration.html')
 
     if request.method =='POST':
-        email = request.POST.get('email')
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        user = User.objects.create_user(username, email, password)
+        user = User.objects.create_user(username, None, password)
         user.save();
 
-        messages.add_message(request, messages.INFO, 'Registered! Please login!')
+        messages.add_message(request, messages.INFO, 'Registered! NOT Logged in LOL!!')
         
         return redirect('/')
 

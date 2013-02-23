@@ -1,3 +1,35 @@
+<script type="text/javascript">
+    function checkPass() {
+      //Store the password field objects into variables ...
+      var password1 = document.getElementById('password1');
+      var password2 = document.getElementById('password2');
+      //Store the Confimation Message Object ...
+      var message = document.getElementById('confirmMessage');
+      //Set the colors we will be using ...
+      var goodColor = "#66cc66";
+      var badColor = "#ff6666";
+      //Compare the values in the password field 
+      //and the confirmation field
+      if (password1.value == password2.value) {
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        password2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!"
+      }
+
+      else {
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        password2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+      }
+    }  
+</script>
+
 <header>
   <nav>
     <div class="welcome">
@@ -25,29 +57,31 @@
       <div class="container">
       <div id="login_box">
         <div id="login_box_content"></div>
-        <div id="login_box_content">
-          <form method="post" action="{% url todo.views.login %}" id="login_form">
-            {% csrf_token %}
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <center><input type="submit" value="LOGIN" /></center>
-          </form>
+          <div id="login_box_content">
+            <form method="post" action="{% url todo.views.login %}" id="login_form">
+              {% csrf_token %}
+              <input type="text" name="username" placeholder="Username" />
+              <input type="password" name="password" placeholder="Password" />
+              <center><input type="submit" value="LOGIN" /></center>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+
       <div id="registration_box">
         <div id="registration_box_content"></div>
-        <div id="registration_box_content">
-          <form method="post" action="{% url todo.views.registration %}" id="registration_form">
-            {% csrf_token %}
-            <input type="text" placeholder="Username" required/>
-            <input type="password" placeholder="Password" required/>
-            <center><input type="submit" value="REGISTER" /></center>
-          </form>
+          <div id="registration_box_content">
+            <form method="post" action="{% url todo.views.registration %}" id="registration_form">
+              {% csrf_token %}
+              <input type="text" name="username" placeholder="Username" required/>
+              <input type="password" name="password" id="password1" placeholder="Password" required/>
+              <input type="password" id="password2" class="default-value" placeholder="Password Repeat" onkeyup="checkPass(); return false;" required />
+              <span id="confirmMessage" class="confirmMessage"></span>
+              <center><input type="submit" value="REGISTER" /></center>
+            </form>
+          </div>
         </div>
-      </div>
-    </div> 
-
-  </div>
+      </div> 
+    </div>
   </nav> 
 </header> 
