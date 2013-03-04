@@ -7,6 +7,8 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import redirect
 from django.contrib import messages
 
+from lazysignup.decorators import allow_lazy_user
+
 from django.contrib.auth.models import *
 from todo.models import Item
 from todo.forms import TodoForm
@@ -18,6 +20,7 @@ def index(request):
     return render(request, 'index.html')
 
 
+@allow_lazy_user
 def todo(request):
 
     if request.method == 'GET':
@@ -97,13 +100,13 @@ def registration(request):
         return render(request, 'registration.html')
 
     if request.method =='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST.get('register_username')
+        password = request.POST.get('register_password')
         
         user = User.objects.create_user(username, None, password)
         user.save();
 
-        messages.add_message(request, messages.INFO, 'Registered! NOT Logged in LOL!!')
+        messages.add_message(request, messages.INFO, 'Registered!')
         
-        return redirect('/')
+        return render(request, 'index.html')
 

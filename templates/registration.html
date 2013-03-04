@@ -40,13 +40,13 @@ function checkPass()
   <form method="post" action="{% url todo.views.registration %}">
     {% csrf_token %}
     <div class="fieldWrapper">
-      <input type="text" name="username" class="default-value" placeholder="Display Name" required />
+      <input type="text" name="register_username" class="default-value" placeholder="Display Name" required />
     </div>
     <div class="fieldWrapper">
-      <input type="text" name="email" class="default-value" placeholder="Email" required />
+      <input type="text" name="register_email" class="default-value" placeholder="Email" required />
     </div>
     <div class="fieldWrapper">
-      <input type="password" name="password" id="password1" class="default-value" placeholder="Password" required />
+      <input type="password" name="register_password1" id="password1" class="default-value" placeholder="Password" required />
     </div>
     <div class="fieldWrapper">
       <input type="password" id="password2" class="default-value" placeholder="Password Repeat" onkeyup="checkPass(); return false;" required />

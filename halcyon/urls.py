@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     # url(r'^halcyon/', include('halcyon.foo.urls')),
     url(r'^$', 'todo.views.index'),
 
+    url(r'^convert/', include('lazysignup.urls')),
+
     url(r'^todo/$', 'todo.views.index'),
     url(r'^list-todo/$', 'todo.views.todo'),
     url(r'^todo/new/$', 'todo.views.new_todo'),

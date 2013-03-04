@@ -1,0 +1,28 @@
+<div class="container">
+  <div id="login_box">
+    <div id="login_box_content"></div>
+    <div id="login_box_content">
+      <form method="post" action="{% url todo.views.login %}" id="login_form">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <center><input type="submit" value="LOGIN" /></center>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="registration_box">
+  <div id="registration_box_content"></div>
+  <div id="registration_box_content">
+    <form method="post" action="{% url todo.views.registration %}" id="registration_form">
+      {% csrf_token %}
+      <input type="text" name="register_username" placeholder="Username" required/>
+      <input type="password" name="register_password" id="password1" placeholder="Password" required/>
+      <input type="password" id="password2" class="default-value" placeholder="Password Repeat" onkeyup="checkPass(); return false;" required />
+      <span id="confirmMessage" class="confirmMessage"></span>
+      <center><input type="submit" value="REGISTER" /></center>
+    </form>
+  </div>
+</div>
+</div> 

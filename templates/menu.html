@@ -1,3 +1,5 @@
+{% load i18n lazysignup_tags %}
+
 <script type="text/javascript">
     function checkPass() {
       //Store the password field objects into variables ...
@@ -33,25 +35,22 @@
 <header>
   <nav>
     <div class="welcome">
-      Welcome {{ user }}! 
+      {% if not user|is_lazy_user %}
+        Welcome {{ user }}! 
+      {% else %}
+        Welcome! Login or register to save your to-do list!
+      {% endif %}
 
       {% if not user.is_authenticated %}
-
-      Login to save your to-do list.
-
+       Login to save your to-do list.
       {% endif %} 
 
       <div class="linksRight">
-        {% if not user.is_authenticated %}
-
-        <a href="#" class="loginbutton">LOGIN</a>
-
-        <a href="#" class="registrationbutton">REGISTER</a>
-
+        {% if not user|is_lazy_user %}
+          <a href="{% url todo.views.logout %}" class="button">LOGOUT</a>
         {% else %}
-
-        <a href="{% url todo.views.logout %}" class="button">LOGOUT</a>
-
+          <a href="#" class="loginbutton">LOGIN</a>
+          <a href="#" class="registrationbutton">REGISTER</a>
         {% endif %}
       </div>
       <div class="container">
@@ -73,8 +72,8 @@
           <div id="registration_box_content">
             <form method="post" action="{% url todo.views.registration %}" id="registration_form">
               {% csrf_token %}
-              <input type="text" name="username" placeholder="Username" required/>
-              <input type="password" name="password" id="password1" placeholder="Password" required/>
+              <input type="text" name="register_username" placeholder="Username" required/>
+              <input type="password" name="register_password" id="password1" placeholder="Password" required/>
               <input type="password" id="password2" class="default-value" placeholder="Password Repeat" onkeyup="checkPass(); return false;" required />
               <span id="confirmMessage" class="confirmMessage"></span>
               <center><input type="submit" value="REGISTER" /></center>
